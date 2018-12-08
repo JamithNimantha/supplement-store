@@ -1,3 +1,6 @@
+<?php
+header('Location:admin/index.php');
+?>
 <!doctype html>
 <html lang="en">
 <head>

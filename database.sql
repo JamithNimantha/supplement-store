@@ -29,7 +29,8 @@ CREATE TABLE users(
 
 
 -- INSERT INTO user VALUES ('admin@mail.com','Jamith Nimantha','No 150,Kanamptiya Road',null ,80000,'Sri Lanka','Galle','123456','admin');
-INSERT INTO user VALUES ('Jamith Nimantha','admin@mail.com','No 150,Kanamptiya Road',80000,'Galle','123456','admin');
+INSERT INTO users VALUES (1,''Jamith Nimantha','admin@mail.com','No 150,Kanamptiya Road',80000,'Galle','123456','admin');
+-- SELECT * FROM users WHERE user_email='admin@mail.com' AND user_password='123456' AND permission_type='admin';'
 
 CREATE TABLE products(
   product_id INT (255) NOT NULL AUTO_INCREMENT,
@@ -42,4 +43,4 @@ CREATE TABLE products(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO products(product_name,product_description,product_qty,product_price,product_image_path) VALUES('Anchor','milk powder',234,234.45,"path");
--- INSERT INTO products(product_name,product_description,product_qty,product_price,product_image_path) VALUES('{}','{}',{},{},"{}")
+--  INSERT INTO products(product_name,product_description,product_qty,product_price,product_image_path) VALUES('{}','{}',{},{},"{}")

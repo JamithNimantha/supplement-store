@@ -16,7 +16,7 @@ $productBO= new ProductBusinessImpl();
 $method=$_SERVER["REQUEST_METHOD"];
 switch ($method){
     case "GET":
-        //echo json_encode($productBO->getAllProducts());
+        echo json_encode($productBO->getAllProducts());
         break;
     case "POST":
         $id=$_POST["ProductID"];

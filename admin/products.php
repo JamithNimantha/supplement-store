@@ -52,14 +52,7 @@
                     <th scope="col">Quantity</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Optimum Nutrition</td>
-                    <td>Whey Protein</td>
-                    <td>4500.00</td>
-                    <td>234</td>
-                </tr>
+                <tbody id="productTable">
                 </tbody>
             </table>
 <!--        </div>-->
@@ -67,8 +60,37 @@
 <!--</div>-->
 
 <?php include_once "includes/footer.php"?>
-<script>
+<script src="../dist/js/jquery.validate.min.js"></script>
 
+<script>
+    $(document).click(function () {
+
+        $('#ProductForm').validate({ // initialize the plugin
+            rules: {
+                UnitPrice: {
+                    required: true,
+                    number: true
+                },
+                ProductName:{
+                    required:true,
+                    minlength:4
+                },
+                ProductDescription:{
+                    required:false,
+                    minlength:4
+                },
+                ProductQTY:{
+                    required:false,
+                    number:true
+                }
+            },
+            messages:{
+                ProductName:"Please Enter a Product Name",
+                
+            }
+        });
+
+    });
     $('#btnSave').click(function () {
         let productForm=$('#ProductForm').serialize();
         $.ajax({
@@ -78,10 +100,29 @@
             data:productForm
         }).done(function (resp) {
             if (resp == true) {
-                alert("product added successfully");
+                loadData();
+                alert("new  product added");
+                $('#myModal').modal();
             }else {
-                alert("product added failed successfully");
+                alert("Operation failed");
             }
         })
     });
+    function loadData() {
+        $('#productTable').empty();
+        $.ajax({
+            url: "../api/service/ProductService.php",
+            method: "GET",
+            async: true,
+            dataType: "json"
+        }).done(function (resp) {
+            for (var i in resp) {
+                var tempA = resp[i];
+                let row = "<tr><td>" + tempA[0] + "</td><td>" + tempA[1] + "</td><td>" + tempA[2] + "</td><td>" + tempA[3] + "</td><td>" + tempA[4] + "</td></tr>";
+                $('#productTable').append(row);
+            }
+        });
+    };
+    loadData();
+
 </script>

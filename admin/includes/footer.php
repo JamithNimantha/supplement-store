@@ -9,5 +9,6 @@
 <script src="../dist/js/bootstrap.js"></script>
 <script src="../dist/js/sb-admin.min.js"></script>
 <script src="../dist/semantic-ui/semantic.min.js"></script>
+<script src="../dist/js/jquery.validate.min.js"></script>
 </body>
 </html>

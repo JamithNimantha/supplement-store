@@ -64,7 +64,7 @@ class ProductRepoImpl implements ProductRepo
 
     public function getAllProducts(): array
     {
-       $resultSet= $this->connection->query("SELECT * FROM products");
+       $resultSet= $this->connection->query("SELECT * FROM products ");
        return $resultSet->fetch_all();
     }
 }

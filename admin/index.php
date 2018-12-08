@@ -22,22 +22,40 @@
     </style>
 </head>
 <body class="text-center">
-<form class="form-signin">
+<form id="loginForm" class="form-signin">
     <img class="mb-4" src="../image/Metabolic_Vector_Logo.png" alt="" width="320" height="172">
-    <h1 style="color: white" class="h3 mb-3 font-weight-normal">Admin Signin</h1>
+    <h1 style="color: white" class="h3 mb-3 font-weight-normal">Admin Login</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input style="color: white" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input style="color: white" name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input style="color: white" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input style="color: white" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
         <label style="color: white">
             <input type="checkbox" value="remember-me"> Remember me
         </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button id="btnLogin" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2018 Metabolic Nutrition.</p>
 </form>
+<script src="../dist/js/jquery-3.3.1.min.js"></script>
 <script src="../dist/semantic-ui/semantic.min.js"></script>
+<script>
+    $('#btnLogin').click(function () {
+        let productForm=$('#loginForm').serialize();
+        $.ajax({
+            url:"../api/service/UserService.php" ,
+            method:"POST",
+            async:true,
+            data:productForm
+        }).done(function (resp) {
+            if (resp == true) {
+                    window.location="dashboard.php";
+            }else {
+                alert("Invalid Login !");
+            }
+        })
+    });
+</script>
 </body>
 
 </html>
