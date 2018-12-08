@@ -104,6 +104,7 @@
     }
 </style>
 <script src="dist/js/jquery-3.3.1.min.js"></script>
+<script src="dist/semantic-ui/semantic.min.js"></script>
 
 </body>
 </html>

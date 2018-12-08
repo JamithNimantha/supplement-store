@@ -5,8 +5,9 @@
         </div>
     </div>
 </footer>
-<script src="../dist/js/jquery-3.3.1.min.js"></script>
-<script src="../dist/js/bootstrap.bundle.js"></script>
+<script src="../dist/jquery/jquery.min.js" ></script>
+<script src="../dist/js/bootstrap.js"></script>
 <script src="../dist/js/sb-admin.min.js"></script>
+<script src="../dist/semantic-ui/semantic.min.js"></script>
 </body>
 </html>
